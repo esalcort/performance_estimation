@@ -64,20 +64,21 @@ class MCTS:
 
     def _simulate(self, node):
         "Returns the reward for a random simulation (to completion) of `node`"
-        invert_reward = True
+        # invert_reward = False
         while True:
             if node.is_terminal():
                 reward = node.reward()
-                return 1 - reward if invert_reward else reward
+                return reward
+                # return 1 - reward if invert_reward else reward
             node = node.find_random_child()
-            invert_reward = not invert_reward
+            # invert_reward = not invert_reward
 
     def _backpropagate(self, path, reward):
         "Send the reward back up to the ancestors of the leaf"
         for node in reversed(path):
             self.N[node] += 1
             self.Q[node] += reward
-            reward = 1 - reward  # 1 for me is 0 for my enemy, and vice versa
+            # reward = 1 - reward  # 1 for me is 0 for my enemy, and vice versa
 
     def _uct_select(self, node):
         "Select a child of node, balancing exploration & exploitation"

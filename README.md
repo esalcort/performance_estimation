@@ -11,3 +11,4 @@ Performance estimation exercises using machine learning
     - **monte_carlo_tree_search.py**: A minimal implementation of MCTS imported from [1]
     - **tictactoe.py**: An example application of MCTS imported from [1]
     - **simulate_yolov3**: A class that estimates computation and communication runtime of a yolov3 tiny CNN running on two processors
+    - **map_yolo.py**: A class that implements the MCTS Node class for the simulate_yolov3 file
